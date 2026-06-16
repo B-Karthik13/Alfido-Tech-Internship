@@ -34,10 +34,11 @@ python main.py
 ## Example Output
 
 ```text
-City: Hyderabad
-Temperature: 32°C
-Humidity: 45%
-Weather: clear sky
+City: Bengaluru, IN
+Temperature: 29.34°C
+Humidity: 57%
+Weather: overcast clouds
+Wind Speed: 4.93 m/s
 ```
 
 ## Project Structure
@@ -47,10 +48,9 @@ weather-api-project/
 │
 ├── main.py
 ├── requirements.txt
-├── README.md
-└── screenshots/
+└── README.md
 ```
 
 ## Author
 
-GADDAM MADHU SMARAN
+KARTHIK BANDIGA

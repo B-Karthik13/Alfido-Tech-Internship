@@ -1,0 +1,14 @@
+Python File Handling & Automation
+
+Goal:
+	Understand Python file handling, automation logic, and exception  handling.
+
+Requirements:
+
+	Read and write files (txt/csv)
+	Automate file operations (rename, move, delete)
+	Use try-except for error handling
+	Explain code logic in comments
+	Deliverables
+	Python script with proper comments
+	Sample input/output screenshots

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}New Task · Task Manager{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h1 class="h4 mb-4"><i class="bi bi-plus-circle text-primary"></i> Add a New Task</h1>
+
+                <form method="POST" action="{{ url_for('add_task') }}" novalidate>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+                        <input
+                            type="text" class="form-control" id="title" name="title"
+                            placeholder="e.g. Finish onboarding checklist"
+                            value="{{ form_data.get('title', '') }}"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea
+                            class="form-control" id="description" name="description" rows="3"
+                            placeholder="Optional details about this task"
+                        >{{ form_data.get('description', '') }}</textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="priority" class="form-label">Priority</label>
+                            <select class="form-select" id="priority" name="priority">
+                                {% for p in priorities %}
+                                    <option value="{{ p }}" {{ 'selected' if form_data.get('priority') == p }}>{{ p }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="due_date" class="form-label">Due Date</label>
+                            <input
+                                type="date" class="form-control" id="due_date" name="due_date"
+                                value="{{ form_data.get('due_date', '') }}"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 mt-3">
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg"></i> Save Task
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

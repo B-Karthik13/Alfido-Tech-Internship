@@ -1,0 +1,102 @@
+/* ---- Color palette ----
+   Deep teal navbar, soft slate background, warm amber/rose accents for priority.
+   Chosen to feel calm and "productivity tool" rather than default Bootstrap blue. */
+
+:root {
+    --tm-navy: #1f3a3d;
+    --tm-teal: #2c6e6b;
+    --tm-bg: #f6f7f5;
+    --tm-low: #6c9a8f;
+    --tm-medium: #d9a441;
+    --tm-high: #c2543f;
+}
+
+body {
+    background-color: var(--tm-bg);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.app-navbar {
+    background-color: var(--tm-navy);
+}
+
+.app-footer {
+    border-top: 1px solid #e1e4e1;
+    margin-top: 2rem;
+}
+
+/* Task cards */
+.task-card {
+    border: none;
+    border-left: 4px solid transparent;
+    border-radius: 0.6rem;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-1px);
+}
+
+.task-card.priority-low {
+    border-left-color: var(--tm-low);
+}
+
+.task-card.priority-medium {
+    border-left-color: var(--tm-medium);
+}
+
+.task-card.priority-high {
+    border-left-color: var(--tm-high);
+}
+
+.task-desc {
+    max-width: 60ch;
+}
+
+.task-actions {
+    min-width: 140px;
+}
+
+/* Priority badges */
+.priority-badge {
+    color: #fff;
+}
+
+.priority-badge-low {
+    background-color: var(--tm-low);
+}
+
+.priority-badge-medium {
+    background-color: var(--tm-medium);
+}
+
+.priority-badge-high {
+    background-color: var(--tm-high);
+}
+
+/* Buttons - tie primary actions to the brand teal */
+.btn-primary {
+    background-color: var(--tm-teal);
+    border-color: var(--tm-teal);
+}
+
+.btn-primary:hover {
+    background-color: var(--tm-navy);
+    border-color: var(--tm-navy);
+}
+
+.btn-outline-primary {
+    color: var(--tm-teal);
+    border-color: var(--tm-teal);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--tm-teal);
+    border-color: var(--tm-teal);
+}
+
+.empty-state {
+    background-color: #fff;
+    border-radius: 0.6rem;
+    border: 1px dashed #d7dad7;
+}

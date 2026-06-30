@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Task Manager{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="{{ url_for('index') }}">
+                <i class="bi bi-check2-square me-2"></i>Task Manager
+            </a>
+            <div class="d-flex">
+                <a href="{{ url_for('add_task') }}" class="btn btn-light btn-sm fw-semibold">
+                    <i class="bi bi-plus-lg"></i> New Task
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pb-5">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center text-muted small py-4 app-footer">
+        Flask Mini Project &middot; Task Manager &middot; Tasks stored in tasks.json &middot; Built with Flask &amp; Bootstrap
+    </footer>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
